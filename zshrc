@@ -2,6 +2,49 @@
 # Docker alias and function
 # ------------------------------------
 
+# --------------------- #
+# [dockviz enhancements](https://github.com/justone/dockviz) #
+# --------------------- #
+
+alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
+
+# List images (three different ways)
+alias did="dockviz images --dot"
+alias dis="dockviz images --short"
+alias dit="dockviz images --tree"
+
+# List containers
+alias dc='dockviz containers --dot'
+
+# ------ #
+# Custom #
+# ------ #
+
+# Remove image
+# alias drmi="docker image rm "
+dirmf() { docker image rm --force $("name=$1"); }
+
+# Force remove image
+dirm() { docker image rm $("name=$1"); }
+
+# Remove container
+alias drmc="docker container rm "
+
+# Force remove container
+alias drmcf="docker container rm "
+
+# -------- #
+# Disabled #
+# -------- #
+
+# Get images
+# disabled in favor of New dockviz images
+# alias di="docker images"
+
+# -------- #
+# Original #
+# -------- #
+
 # Get latest container ID
 alias dl="docker ps -l -q"
 
@@ -10,9 +53,6 @@ alias dps="docker ps"
 
 # Get process included stop container
 alias dpa="docker ps -a"
-
-# Get images
-alias di="docker images"
 
 # Get container IP
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
@@ -46,3 +86,9 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
+---
+
+Credits
+
+- [dockviz](https://github.com/justone/dockviz)
