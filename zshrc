@@ -20,6 +20,9 @@ alias dc='dockviz containers --dot'
 # Custom #
 # ------ #
 
+# List docker images the normal way
+alias di='docker images'
+
 # Remove image
 # alias drmi="docker image rm "
 dirmf() { docker image rm --force $("name=$1"); }
