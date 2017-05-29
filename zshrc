@@ -14,7 +14,7 @@ alias dis="dockviz images --short"
 alias dit="dockviz images --tree"
 
 # List containers
-alias dc='dockviz containers --dot'
+alias dc='docker-compose'
 
 # ------ #
 # Custom #
