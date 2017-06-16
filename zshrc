@@ -2,6 +2,9 @@
 # Docker alias and function
 # ------------------------------------
 
+# Remove all images
+drmi() { docker rmi $(docker images -q); }
+
 # --------------------- #
 # [dockviz enhancements](https://github.com/justone/dockviz) #
 # --------------------- #
